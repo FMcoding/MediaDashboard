@@ -21,7 +21,7 @@ body, html {
 
 .container {
     width: 100%;
-    height: 100vh;
+    height: 135vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -32,7 +32,7 @@ body, html {
     z-index: 0;
     width: 100%;
     height: 17rem;
-    background: var(--very-pale-blue);
+    background-color: var(--very-pale-blue);
     border: hidden;
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
@@ -42,7 +42,7 @@ body, html {
 main {
     position: absolute;
     width: 75rem;
-    height: 35rem;
+    height: 50rem;
     z-index: 1;
     padding: 3px;
 }
@@ -130,16 +130,63 @@ input:checked + .slider:before {
 .four-media-container {
     display: grid;
     grid-template-areas:
-        'face twitter insta pin';
+        'face twitter insta yt';
     grid-gap: 2rem;
     margin-top: 2rem;
     height: 16rem;
 }
 
-.facebook-container, .twitter-container, .instagram-container, .pinterest-container {
-    width: auto;
+.top-card {
+    width: calc(69rem / 4);
     border-radius: 5px;
-    background-color: var(--light-grayish-blue)
+    background-color: var(--light-grayish-blue);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-family: "Inter";
+}
+
+.info-container {
+    width: 75%;
+}
+
+.account-name, .info-today {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: auto;
+    width: 9em;
+    justify-content: space-evenly;
+}
+
+.account-name p {
+    font-size: 14px;
+    color: var(--dark-grayish-blue);
+    font-weight: bold;
+}
+
+.info-container h1 {
+    font-size: 64px;
+    margin: 0px;
+    color: var(--very-dark-blue-bg);
+}
+
+.info-container .unbold {
+    margin-top: 0px;
+    color: var(--dark-grayish-blue);
+    font-size: 16px;
+    letter-spacing: 6px;
+}
+
+.green-up {
+    font-weight: bold;
+    color: var(--lime-green);
+}
+
+.red-down {
+    font-weight: bold;
+    color: var(--bright-red);
 }
 
 .facebook-container {
@@ -155,17 +202,339 @@ input:checked + .slider:before {
 
 .instagram-container {
     grid-area: insta;
+    position: relative;
+    overflow: hidden;
+}
+
+.instagram-container::after {
+    content: "";
+    position: absolute;
+    width: calc(69rem / 4);
     border-style: solid;
     border-image: linear-gradient(to right, hsl(37, 97%, 70%), hsl(329, 70%, 58%)) 1;
     border-image-width: 5px 0 0 0;
+    height: 5px;
+    top: 0;
 }
 
 .instagram-container::after {
     border-radius: 5px;
 }
 
-.pinterest-container {
-    grid-area: pin;
+.youtube-container {
+    grid-area: yt;
     border-top: 5px solid hsl(348, 97%, 39%);
+}
 
+.gray-header {
+    color: var(--dark-grayish-blue);
+    font-family: "Inter";
+    margin-top: 2rem;
+}
+
+.stats-container {
+    display: grid;
+    grid-template-areas:
+        'card1 card2 card3 card4'
+        'card5 card6 card7 card8';
+    height: 20rem;
+    grid-row-gap: 1.5rem;
+    grid-column-gap: 2rem;
+}
+
+.card {
+    width: calc(69rem / 4);
+    height: 9.25rem;
+    border-radius: 5px;
+    background-color: var(--light-grayish-blue);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-family: "Inter";
+}
+
+.top-card:hover, .card:hover {
+    cursor: pointer;
+    background-color: hsla(230, 22%, 74%, 0.5);
+}
+
+.top-logo, .stats {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: auto;
+    justify-content: space-between;
+    height: 50%;
+    padding: 3px;
+}
+
+.stats-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    width: 4rem;
+    height: 2rem; 
+    transform: translateY(10px);
+}
+
+.stat-card-main {
+    width: 80%;
+    height: 80%;
+}
+
+.stats-increase-size {
+    font-size: 40px;
+    color: var(--very-dark-blue-bg);
+    font-weight: bold;
+}
+
+.card-header {
+    font-size: 16px;
+    color: var(--dark-grayish-blue);
+    font-weight: bold;
+}
+
+.stats-row p {
+    margin-left: 3px;
+}
+
+.stat-card-container-1 {
+    grid-area: card1;
+}
+
+.stat-card-container-2 {
+    grid-area: card2;
+}
+
+.stat-card-container-3 {
+    grid-area: card3;
+}
+
+.stat-card-container-4 {
+    grid-area: card4;
+}
+
+.stat-card-container-5 {
+    grid-area: card5;
+}
+
+.stat-card-container-6 {
+    grid-area: card6;
+}
+
+.stat-card-container-7 {
+    grid-area: card7;
+}
+
+.stat-card-container-8 {
+    grid-area: card8;
+}
+
+/* Dark Theme*/
+.dark-p {
+    animation-name: dark-p-transition;
+    animation-duration: 0.2s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes dark-p-transition {
+    0% {color: hsl(228, 12%, 44%);}
+    25% {color: hsl(228, 18%, 50%);}
+    50% {color: hsl(228, 24%, 56%);}
+    75% {color: hsl(228, 30%, 62%);}
+    100% {color: hsl(228, 34%, 66%);}
+}
+
+.dark-bigfonts {
+    animation-name: dark-bigfonts-transition;
+    animation-duration: 0.2s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes dark-bigfonts-transition {
+    0% {color: hsl(230, 17%, 14%)}
+    25% {color: hsl(228, 13%, 40%);}
+    50% {color: hsl(228, 8%, 60%);}
+    75% {color: hsl(228, 4%, 80%);}
+    100% {color: hsl(0, 0%, 100%);}
+}
+
+.dark-top-bg {
+    animation-name: dark-top-bg-transition;
+    animation-duration: 0.2s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes dark-top-bg-transition {
+    0% {background-color: hsl(225, 100%, 98%);}
+    25% {background-color: hsl(228, 80%, 80%);}
+    50% {background-color: hsl(228, 60%, 60%);}
+    75% {background-color: hsl(228, 40%, 30%);}
+    100% {background-color: hsl(232, 19%, 15%);}
+}
+
+.dark-container {
+    animation-name: dark-container-transition;
+    animation-duration: 0.2s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes dark-container-transition {
+    0% {background-color: hsl(225, 100%, 100%);}
+    25% {background-color: hsl(228, 80%, 80%);}
+    50% {background-color: hsl(228, 60%, 60%);}
+    75% {background-color: hsl(228, 40%, 30%);}
+    100% {background-color: hsl(230, 17%, 14%);}
+}
+
+.dark-card {
+    animation-name: dark-card-transition;
+    animation-duration: 0.2s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes dark-card-transition {
+    0% {background-color: hsl(227, 47%, 96%);}
+    25% {background-color: hsl(228, 41%, 80%);}
+    50% {background-color: hsl(228, 35%, 66%);}
+    75% {background-color: hsl(228, 30%, 42%);}
+    100% {background-color: hsl(228, 28%, 20%);}
+}
+
+@media screen and (max-width: 1250px) {
+    .container {
+        height: 1600px;
+        align-items: initial;
+    }
+
+    main {
+        width: 90%;
+        height: 100rem;
+    }
+
+    .header-container {
+        display: block;
+        height: 9rem;
+    }
+
+    .info-today {
+        width: calc(100% / 2.5);
+    }
+
+    .header-content {
+        border-bottom: 1px solid var(--dark-grayish-blue);
+    }
+
+    .header-container h1 {
+        font-size: 28px;
+    }
+
+    .toggle-container {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .four-media-container {
+        grid-template-areas:
+            'face twitter'
+            'insta yt';
+        height: 34rem;
+        margin-top: 4rem;
+    }
+    
+    .top-card {
+        width: 100%;
+    } 
+
+    .instagram-container::after {
+        width: 100%;
+    }
+
+    .stats-container {
+        grid-template-areas:
+            'card1 card2'
+            'card3 card4'
+            'card5 card6'
+            'card7 card8';            
+        height: 41.5rem;
+        grid-row-gap: 1.5rem;
+        grid-column-gap: 2rem;
+    }
+    
+    .card {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .container {
+        height: 2900px;
+        align-items: initial;
+    }
+
+    main {
+        width: 90%;
+        height: 175rem;
+    }
+
+    .header-container {
+        display: block;
+        height: 9rem;
+    }
+
+    .info-today {
+        width: calc(100% / 2.5);
+    }
+
+    .header-content {
+        border-bottom: 1px solid var(--dark-grayish-blue);
+    }
+
+    .header-container h1 {
+        font-size: 28px;
+    }
+
+    .toggle-container {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .four-media-container {
+        grid-template-areas:
+            'face'
+            'twitter'
+            'insta'
+            'yt';
+        height: 72rem;
+        margin-top: 4rem;
+    }
+    
+    .top-card {
+        width: 100%;
+    } 
+
+    .instagram-container::after {
+        width: 100%;
+    }
+
+    .stats-container {
+        grid-template-areas:
+            'card1'
+            'card2'
+            'card3'
+            'card4'
+            'card5'
+            'card6'
+            'card7'
+            'card8';            
+        height: 84.5rem;
+        grid-row-gap: 1.5rem;
+        grid-column-gap: 2rem;
+    }
+    
+    .card {
+        width: 100%;
+    }
 }
